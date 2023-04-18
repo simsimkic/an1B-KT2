@@ -1,0 +1,49 @@
+﻿<Window x:Class="InitialProject.WPF.Views.RatingGuestForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views"
+        mc:Ignorable="d"
+        Title="Rating guest" Height="450" Width="350"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock TextWrapping="Wrap" Text="Cleanliness" TextAlignment="Center" Margin="30,10,0,15" Height="25" FontSize="18"/>
+            <ComboBox x:Name="ComboBoxCleanliness" SelectedValuePath="Content" Text="{Binding Path=Cleanliness, UpdateSourceTrigger=PropertyChanged}" Height="26" Width="147" Margin="50,10,0,15" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock TextWrapping="Wrap" Text="Following the rules" TextAlignment="Center" Margin="30,10,0,15" Height="49" FontSize="18" Width="89"/>
+            <ComboBox x:Name="ComboBoxFollowingTheRules" SelectedValuePath="Content" Text="{Binding Path=FollowingTheRules, UpdateSourceTrigger=PropertyChanged}" Height="26" Width="147" Margin="50,10,0,15" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
+            </ComboBox>
+        </StackPanel>
+
+        <TextBlock Name="TextBlockComment" Grid.Row="2" TextWrapping="Wrap" Text="Your comment:" TextAlignment="Center" Margin="0,21,236,0"/>
+        <TextBox Name="TextBoxComment" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Path=Comment, UpdateSourceTrigger=PropertyChanged}" Margin="5" TextChanged="TextBoxComment_TextChanged"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button Name="ButtonRate" Content="Rate" Width="100" Height="40" IsEnabled="False" Margin="45,0,30,0" Click="ButtonRate_Click"/>
+            <Button Name="ButtonCancel" Content="Cancel" Width="100" Height="40" Margin="30,0,30,0" Click="ButtonCancel_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

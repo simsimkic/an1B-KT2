@@ -1,0 +1,57 @@
+﻿<Window x:Class="InitialProject.WPF.Views.AccommodationRegistrationForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views"
+        mc:Ignorable="d"
+        Title="Accommodation Registration" Height="750" Width="800" Loaded="AccommodationRegistrationLoaded" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,15,0,0">
+            <TextBlock TextWrapping="Wrap" Text="Name" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="Country" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="City" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="Type" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="Max number of guests" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="Min days for reservation" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+            <TextBlock TextWrapping="Wrap" Text="Min days before cancel" FontSize="18" TextAlignment="Center" Margin="0,10,0,15"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,15,0,0">
+            <TextBox TextWrapping="Wrap" Text="{Binding Path=AccommodationName, UpdateSourceTrigger=PropertyChanged}"  Width="247"  Margin="0,10,0,15" Height="23.94" TextChanged="TestTextBox_TextChanged"/>
+            <ComboBox Name="ComboBoxCountry" SelectedValuePath="Content" Text="{Binding Path=Country, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" SelectionChanged="ComboBoxCountry_SelectionChanged"/>
+            <ComboBox x:Name="ComboBoxCity" SelectedValuePath="Content" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" IsEnabled="False" SelectionChanged="ComboBox_SelectionChanged"/>
+            <ComboBox Name="ComboBoxAccommodationType" SelectedValuePath="Content" Text="{Binding Path=Type, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="apartment"/>
+                <ComboBoxItem Content="house"/>
+                <ComboBoxItem Content="cottage"/>
+            </ComboBox>
+            <TextBox TextWrapping="Wrap" Text="{Binding Path=Capacity, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" TextChanged="TestTextBox_TextChanged"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding Path=MinDaysForStay, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" TextChanged="TestTextBox_TextChanged"/>
+            <TextBox TextWrapping="Wrap" Text="{Binding Path=MinDaysBeforeCancel, UpdateSourceTrigger=PropertyChanged}" Width="247"  Margin="0,10,0,15" Height="23.94" TextChanged="TestTextBox_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock TextWrapping="Wrap" Text="Type url of image here:" FontSize="18" TextAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBox Name="TestTextBox" TextWrapping="Wrap" Text="" Height="50" Grid.Row="1" Margin="5" TextChanged="TestTextBox_TextChanged"/>
+            <Button x:Name="ButtonAddImages" Content="Add image" Width="100" Height="40" Margin="0,10,0,0" Click="ButtonAddImages_Click" IsEnabled="False"/>
+        </StackPanel>
+        
+        <Button Name="ButtonSaveImage" Content="Save image" Grid.Column="1" Grid.Row="1" Margin="170,0,0,0" Width="100" Height="40" Click="ButtonSaveImage_Click" IsEnabled="False"/>
+
+        <Button Name="ButtonRegister" Content="Register" Grid.Row="2" Grid.Column="1" Margin="50,0,0,0" Width="100" Height="40" Click="ButtonRegister_Click" IsEnabled="False" HorizontalAlignment="Left"/>
+        <Button Name="ButtonCancel" Content="Cancel" Grid.Row="2" Grid.Column="1" Width="100" Height="40" Margin="0,0,50,0" Click="ButtonCancel_Click" HorizontalAlignment="Right"/>
+        <Image Name="UploadedPicture" Grid.Column="1" HorizontalAlignment="Left" Height="105" Margin="0,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+        <TextBlock Name="TextBlockPictureSaved" Grid.Column="1" Text="" Margin="0,134,0,0" Grid.Row="1" Width="400" Height="62"/>
+    </Grid>
+</Window>

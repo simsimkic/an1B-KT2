@@ -1,0 +1,21 @@
+﻿<Window x:Class="InitialProject.WPF.Views.Guest2Views.Guest2Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views.Guest2Views"
+        mc:Ignorable="d"
+        Title="Guest2Menu" Height="400" Width="400">
+    <Grid>
+        <Button Command="{Binding LogOutCommand}" Content="Log out" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button Content="Tours" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="170" Click="OpenTours_Click"/>
+        <Button Content="Reserved Tours" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" Width="170" Click="OpenReservedTours_Click"/>
+        <Button Content="New Tour Request" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Requested Complexed Tours" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Requested Tours" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Statistics" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="New Complexed Tour Request" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Close" HorizontalAlignment="Center" Margin="0,335,0,0" VerticalAlignment="Top" Width="170" Command="{Binding CloseWindowCommand}"/>
+        <Button Content="Vouchers" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" Width="71" />
+    </Grid>
+</Window>

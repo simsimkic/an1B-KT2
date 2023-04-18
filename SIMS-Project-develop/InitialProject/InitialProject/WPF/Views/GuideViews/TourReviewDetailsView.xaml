@@ -1,0 +1,72 @@
+﻿<Window x:Class="InitialProject.WPF.Views.TourReviewDetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InitialProject.WPF.Views"
+        mc:Ignorable="d"
+        Title="TourReviewDetailsView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="201*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Content="{Binding UserInfo}"></Label>
+
+        <Image Grid.Row="1" Grid.ColumnSpan="2" Height="150" Width="300" VerticalAlignment="Top" Margin="0,20,0,0" Source="{Binding Path=SelectedImage, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Name="ButtonPreviousImage" Grid.Row="1" Grid.Column="0" Width="32" Height="32" HorizontalAlignment="Left" Margin="200,0,0,0" BorderBrush="White" Background="White">
+            <Image Source="../../../Resources/Images/left_arrow.png"/>
+        </Button>
+
+        <Button Name="ButtonNextImage" Grid.Row="1" Grid.Column="1" Width="32" Height="32" HorizontalAlignment="Right" Margin="0,0,200,0" BorderBrush="White" Background="White">
+            <Image Source="../../../Resources/Images/right_arrow.png"></Image>
+        </Button>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="50,0,0,0" VerticalAlignment="Center">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Content="Guide knowledge: " FontWeight="Bold" FontSize="16"/>
+                <Label Grid.Column="1" Content="{Binding Path=GuideKnowledgeGrade}" FontWeight="Bold" FontSize="16"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Content="Language: " FontWeight="Bold" FontSize="16"/>
+                <Label Grid.Column="1" Content="{Binding Path=GuideLanguageGrade}" FontWeight="Bold" FontSize="16"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Content="Interestingness: " FontWeight="Bold" FontSize="16"/>
+                <Label Grid.Column="1" Content="{Binding Path=InterestingnessGrade}" FontWeight="Bold" FontSize="16"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,50,0">
+            <Label Content="Comment: " FontWeight="Bold" FontSize="16"/>
+            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Comment}" TextWrapping="Wrap" FontSize="14"></TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Background="#FF19DABB">
+            <Button Content="Close" Width="70" Height="25" HorizontalAlignment="Left" Margin="10,0,0,0" Command="{Binding CloseWindowCommand}"></Button>
+        </Border>
+    </Grid>
+</Window>
